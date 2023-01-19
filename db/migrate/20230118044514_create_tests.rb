@@ -3,7 +3,8 @@ class CreateTests < ActiveRecord::Migration[7.0]
     create_table :tests do |t|
       t.string :title
       t.string :author_id
-      t.string :category_id
+      t.integer :audience, default: 0
+      t.integer :status, default: 0
 
       t.timestamps
     end
