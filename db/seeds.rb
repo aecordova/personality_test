@@ -3,5 +3,21 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+require 'factory_bot_rails'
+
+def find_or_create_admin_user
+  User.find_by(email: 'angel@email.com') ||
+  FactoryBot.create(
+    :admin_user, 
+    name: 'angel', 
+    email: 'angel@email.com', 
+    password: '123456', 
+    password_confirmation: '123456'
+  )
+end
+
+admin_user = find_or_create_admin_user
+test = FactoryBot.create(:draft_test, author: admin_user)
+FactoryBot.create_list(:question, 10, :multiple_choice, test: test)
+puts "  -> Done!! Admin User and Test created with 10 questions"

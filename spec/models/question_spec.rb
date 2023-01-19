@@ -8,7 +8,6 @@ RSpec.describe Question, type: :model do
 
   describe 'associations' do
     it { question.should belong_to(:test) }
-    it { question.should belong_to(:author) }
   end
 
   describe "true_false question type" do

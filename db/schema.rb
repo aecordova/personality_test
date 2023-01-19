@@ -28,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_052503) do
     t.string "title"
     t.string "caption"
     t.integer "test_id"
-    t.integer "author_id"
     t.integer "question_type", default: 0
     t.integer "question_order", default: 0
     t.string "settings"
