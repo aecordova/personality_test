@@ -6,8 +6,7 @@ FactoryBot.define do
     author { create(:admin_user) }
     audience { :open }
     status { :published }
-    questions { create_list(:question, 3) }
-
+    
     trait :draft do
       status { :draft }
     end

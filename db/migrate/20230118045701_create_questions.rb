@@ -5,10 +5,9 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
       t.string :caption
       t.integer :test_id
       t.integer :author_id
-      t.integer :category_id
-      t.string :question_type
-      t.string :question_options
-      t.integer :question_order
+      t.integer :question_type, default: 0
+      t.integer :question_order, default: 0
+      t.string :settings
 
       t.timestamps
     end

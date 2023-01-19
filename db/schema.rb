@@ -15,7 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_052503) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string "answer"
+    t.string "answer_text"
+    t.integer "answer_value"
     t.integer "question_id"
     t.integer "response_id"
     t.integer "responder_id"
@@ -28,10 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_052503) do
     t.string "caption"
     t.integer "test_id"
     t.integer "author_id"
-    t.integer "category_id"
-    t.string "question_type"
-    t.string "question_options"
-    t.integer "question_order"
+    t.integer "question_type", default: 0
+    t.integer "question_order", default: 0
+    t.string "settings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

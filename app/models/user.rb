@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :responded_tests, through: :responses, source: :test
 
-  enum role: { guest: 0, user: 1,  admin: 1 }
+  enum role: { guest: 0, user: 1,  admin: 2 }
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP },  unless: ->{ guest? } 
   validates :name, presence: true, length: { maximum: 50 }
