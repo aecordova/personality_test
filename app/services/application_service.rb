@@ -28,8 +28,4 @@ class ApplicationService
       @errors << { step: step, message: message }
     end
   end
-
-  private
-  
-  attr_accessor :errors, :outcome
 end
