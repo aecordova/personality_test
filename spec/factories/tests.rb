@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tests
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  author_id  :string
+#  audience   :integer          default("open")
+#  status     :integer          default("draft")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'faker'
 
 FactoryBot.define do

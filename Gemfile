@@ -11,6 +11,7 @@ gem "sprockets-rails"
 
 gem 'pg'
 gem 'simple_form'
+gem 'annotate'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

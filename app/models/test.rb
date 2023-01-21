@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tests
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  author_id  :string
+#  audience   :integer          default("open")
+#  status     :integer          default("draft")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Test < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :responses, dependent: :destroy

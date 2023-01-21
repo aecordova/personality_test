@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id             :bigint           not null, primary key
+#  title          :string
+#  caption        :string
+#  test_id        :integer
+#  question_type  :integer          default("multiple_choice")
+#  question_order :integer          default(0)
+#  settings       :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 require 'faker'
 
 FactoryBot.define do

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  name            :string
+#  email           :string
+#  role            :integer          default("guest")
+#  password_digest :string
+#
 class User < ApplicationRecord
   has_secure_password(validations: false)
   

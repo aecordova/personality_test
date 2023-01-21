@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  name            :string
+#  email           :string
+#  role            :integer          default("guest")
+#  password_digest :string
+#
 require 'faker'
 
 FactoryBot.define do
