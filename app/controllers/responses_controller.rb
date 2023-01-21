@@ -5,13 +5,19 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    #TBD
+    results = ResponseCreator.execute(test, response_params)
   end
+
+  private
 
   def response_params
     params.require(:response).permit(
-      user: [:name, :id],
+      responder: [:name, :id],
       answers: {}
-    ).merge(test_id: params[:id])
+    )
+  end
+
+  def test
+    @test ||= Test.find(params[:id])
   end
 end
