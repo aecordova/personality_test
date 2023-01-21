@@ -1,0 +1,29 @@
+
+  <div class="container p-1 text-light">
+    <div class="d-flex justify-content-center allign-items-center h1 mt-4">
+      <div class="col-8 text-center">
+        <%= @test.title %>
+      </div>
+    </div>
+    <div class="py-3">
+    <%= simple_form_for @response, url: responses_path(@test) do |frm| %>
+      <%= frm.simple_fields_for :user do |usr| %>
+      <div class="my-3 d-flex justify-content-center allign-items-center">
+        <div class="col-6 row ">
+          <%= usr.input :name, 
+                label: "Name:",  
+                label_html: { class: 'text-nowrap p-2' },
+                input_html: { class: 'bg-transparent text-light border-none outline-none' },
+                wrapper_html: { class: 'd-flex'}%>
+        </div>
+      </div>
+      <% end %>
+      <% @test.questions.each_with_index do |question, index| %>
+        <%= render "questions/question", question: question, index: index+1, frm: frm %>
+      <% end %>
+      <div class="my-3 d-flex justify-content-center allign-items-center" >
+        <%= frm.button :submit, "Save and See Results", class: "btn btn-lg btn-outline-light"%>
+      </div>
+    <% end %>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+ 
+ <div class="col">
+    <%= radio_button_tag(
+      "response[answers][question_#{question.id}]", 
+      choice[:value], 
+      checked = false, 
+      options = {
+        id: "ch_#{question.id}_#{choice_index}"
+      }
+    )%>
+    <%= label_tag(
+      "ch_#{question.id}_#{choice_index}", 
+      choice[:caption],
+      options = {
+        class: "form-check-label"
+      }
+    )%>
+</div>
