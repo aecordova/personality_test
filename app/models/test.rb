@@ -4,7 +4,7 @@ class Test < ApplicationRecord
   has_many :responders, through: :responses, source: :responder
   has_many :questions, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: { scope: :author_id }, if: ->{ open? } 
   
   # cant use public/private because they are reserved words
   enum audience: { open: 0, closed: 1 } 
