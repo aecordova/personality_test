@@ -5,7 +5,13 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    results = ResponseCreator.execute(test, response_params)
+    outcome = ResponseCreator.execute(test, response_params)
+    
+    if outcome.success?
+      redirect_to results_path(outcome.data)
+    else
+      render :new
+    end
   end
 
   private

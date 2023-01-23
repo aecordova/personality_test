@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @quick_test = Test.find_by(title: "Personality Test")
+    @quick_test = Test.find_by(title: "Quick Personality Test")
   end
 
   def help

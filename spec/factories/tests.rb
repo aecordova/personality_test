@@ -18,6 +18,7 @@ FactoryBot.define do
     author { create(:admin_user) }
     audience { :open }
     status { :published }
+    calculation_type { :test_calculation }
     
     trait :draft do
       status { :draft }

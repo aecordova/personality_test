@@ -27,5 +27,9 @@ class ApplicationService
     def add_error(step, message)
       @errors << { step: step, message: message }
     end
+
+    def add_errors(errors)
+      @errors += errors
+    end
   end
 end

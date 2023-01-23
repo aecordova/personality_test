@@ -21,4 +21,8 @@ class Test < ApplicationRecord
   # cant use public/private because they are reserved words
   enum audience: { open: 0, closed: 1 } 
   enum status: { draft: 0, published: 1, archived: 2 }
+  
+  def calculation_class
+    "Calculations::#{calculation_type.to_s.camelize}".constantize
+  end
 end

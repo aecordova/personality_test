@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_secure_password(validations: false)
   
   has_many :responses, dependent: :destroy
+  has_many :results, through: :responses
+  has_many :answers, through: :responses
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :responded_tests, through: :responses, source: :test
 

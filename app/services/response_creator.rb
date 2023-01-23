@@ -11,6 +11,7 @@ class ResponseCreator < ApplicationService
       find_or_create_responder
       create_response
       create_answers
+      calculate_test_results
     end
 
     outcome.data = @response
@@ -49,6 +50,11 @@ class ResponseCreator < ApplicationService
     end
   rescue => e
     handle_error(:create_answers, e.message)
+  end
+
+  def calculate_test_results
+    result = ResultCalculator.new(@response).call
+    outcome.add_errors(result.errors) if result.errors.any?
   end
 
   def handle_error(step, message)
