@@ -5,12 +5,13 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    outcome = ResponseCreator.execute(test, response_params)
-    
-    if outcome.success?
-      redirect_to results_path(outcome.data)
+    results = ResponseCreator.execute(test, response_params)
+    response = results.data
+
+    if results.success?
+      redirect_to result_response_path(response)
     else
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
 

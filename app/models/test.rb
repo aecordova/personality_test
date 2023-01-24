@@ -2,13 +2,14 @@
 #
 # Table name: tests
 #
-#  id         :bigint           not null, primary key
-#  title      :string
-#  author_id  :string
-#  audience   :integer          default("open")
-#  status     :integer          default("draft")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id               :bigint           not null, primary key
+#  title            :string
+#  author_id        :bigint           not null
+#  audience         :integer          default("open")
+#  status           :integer          default("draft")
+#  calculation_type :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 class Test < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
@@ -25,4 +26,6 @@ class Test < ApplicationRecord
   def calculation_class
     "Calculations::#{calculation_type.to_s.camelize}".constantize
   end
+
+  alias :calculation :calculation_class
 end
