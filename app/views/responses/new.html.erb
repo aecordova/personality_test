@@ -9,13 +9,13 @@
     <%= simple_form_for @response, url: responses_path(@test) do |frm| %>
       <%= frm.simple_fields_for :user do |usr| %>
       <div class="my-3 d-flex justify-content-center allign-items-center">
-        <div class="col-6 row ">
+        <div class="col-6 border border-outline border-secondary rounded-3">
           <%= usr.input :name, 
                 label: "Name:",
                 wrapper_html: { class: 'd-flex'},
-                label_html: { class: 'text-nowrap p-1' },
+                label_html: { class: 'text-nowrap p-2 mx-2' },
                 input_html: { 
-                  class: 'bg-transparent text-light',
+                  class: 'bg-transparent text-light border-0 text-center',
                   name: "response[responder][name]"
                 }
           %>
@@ -26,7 +26,7 @@
         <%= render "questions/question", question: question, index: index+1, frm: frm %>
       <% end %>
       <div class="my-3 d-flex justify-content-center allign-items-center" >
-        <%= frm.button :submit, "Save and See Results", class: "btn btn-lg btn-outline-light"%>
+        <%= frm.button :submit, "Save and See Results", class: "btn btn-lg btn-outline-primary"%>
       </div>
     <% end %>
     </div>
