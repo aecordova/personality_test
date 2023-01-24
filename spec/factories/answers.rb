@@ -5,9 +5,8 @@
 #  id           :bigint           not null, primary key
 #  answer_text  :string
 #  answer_value :integer
-#  question_id  :integer
-#  response_id  :integer
-#  responder_id :integer
+#  question_id  :bigint           not null
+#  response_id  :bigint           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

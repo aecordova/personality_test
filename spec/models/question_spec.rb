@@ -5,7 +5,7 @@
 #  id             :bigint           not null, primary key
 #  title          :string
 #  caption        :string
-#  test_id        :integer
+#  test_id        :bigint           not null
 #  question_type  :integer          default("multiple_choice")
 #  question_order :integer          default(0)
 #  settings       :string

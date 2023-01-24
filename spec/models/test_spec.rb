@@ -2,13 +2,14 @@
 #
 # Table name: tests
 #
-#  id         :bigint           not null, primary key
-#  title      :string
-#  author_id  :string
-#  audience   :integer          default("open")
-#  status     :integer          default("draft")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id               :bigint           not null, primary key
+#  title            :string
+#  author_id        :bigint           not null
+#  audience         :integer          default("open")
+#  status           :integer          default("draft")
+#  calculation_type :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 require 'rails_helper'
 
