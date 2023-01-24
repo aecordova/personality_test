@@ -35,7 +35,7 @@ class ResultCalculator < ApplicationService
   end
 
   def max_possible_score
-    calculation.max_possible_score
+    calculation.class.max_possible_score
   end
 
   def question_count
@@ -50,6 +50,6 @@ class ResultCalculator < ApplicationService
   end
 
   def calculation
-    @calculation ||= response.test.calculation_class.new(score)
+    @calculation ||= response.test.calculation.new(score)
   end
 end
