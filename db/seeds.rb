@@ -3,7 +3,6 @@
 #
 # Examples:
 #
-require 'faker'
 require 'factory_bot_rails'
 
 QUESTION_LIST =  [
